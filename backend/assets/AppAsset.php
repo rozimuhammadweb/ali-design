@@ -40,7 +40,7 @@ class AppAsset extends AssetBundle
         "js/AdminLTE/dashboard.js",
     ];
     public $depends = [
-        'yii\web\YiiAsset',
+//        'yii\web\YiiAsset',
 //        'yii\bootstrap5\BootstrapAsset',
     ];
 }

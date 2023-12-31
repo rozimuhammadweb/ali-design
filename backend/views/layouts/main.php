@@ -7,6 +7,7 @@
 use backend\assets\AppAsset;
 use backend\widgets\Header;
 use backend\widgets\LeftSide;
+use backend\widgets\RightSide;
 use common\widgets\Alert;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
@@ -29,8 +30,9 @@ AppAsset::register($this);
     <?php $this->beginBody() ?>
 
     <?= Header::widget() ?>
-    <div class="wrapper row-offcanvas row-offcanvas-left">
+    <div class="wrapper row-offcanvas row-offcanvas-left" style="background: #333">
         <?= LeftSide::widget() ?>
+        <?= RightSide::widget() ?>
         <main role="main" class="flex-shrink-0">
             <div class="container">
                 <?= Breadcrumbs::widget([
