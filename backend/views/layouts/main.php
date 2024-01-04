@@ -30,18 +30,11 @@ AppAsset::register($this);
     <?php $this->beginBody() ?>
 
     <?= Header::widget() ?>
-    <div class="wrapper row-offcanvas row-offcanvas-left" style="background: #333">
+    <div class="wrapper row-offcanvas row-offcanvas-left">
         <?= LeftSide::widget() ?>
-        <?= RightSide::widget() ?>
-        <main role="main" class="flex-shrink-0">
-            <div class="container">
-                <?= Breadcrumbs::widget([
-                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                ]) ?>
-                <?= Alert::widget() ?>
-                <?= $content ?>
-            </div>
-        </main>
+        <aside class="right-side container" >
+            <?= $content ?>
+        </aside>
     </div>
 
 

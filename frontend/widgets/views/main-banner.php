@@ -1,3 +1,8 @@
+<?php
+
+use yii\helpers\Url;
+
+?>
 <!-- //glavni-ekran -->
 
 <div class="glavni">
@@ -18,11 +23,11 @@
                 <p class="txt-18 ab2">
                     Оказываем широкий спектр услуг в рекламе и производстве рекламных носителей. Сотрудничаем с ведущими поставщиками оборудования. Имеем свои рекламные конструкции и LED экраны по региону
                 </p>
-                <a href="work.html" class="btn-glavni   txt-18 ab3">
+                <a href="<?= Url::to('site/works')?>" class="btn-glavni   txt-18 ab3">
                     Все услуги
                 </a>
             </div>
-            <a href="work.html" class="glavni-blog ab4">
+            <a href="<?= Url::to('site/works')?>" class="glavni-blog ab4">
                 <div class="bg-img"></div>
                 <img src="img/png/img-gl.png" alt="" class="right-img">
                 <div class="sec-r">

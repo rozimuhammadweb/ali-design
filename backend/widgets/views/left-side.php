@@ -1,14 +1,17 @@
 <!-- Left side column. contains the logo and sidebar -->
-<aside class="left-side sidebar-offcanvas">
+<aside class="left-side sidebar-offcanvas container">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
         <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
-                </div>
+            <div class="pull-left image">
+                <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
+            </div>
             <div class="pull-left info">
                 <?php
+
+                use yii\helpers\Url;
+
                 if (!Yii::$app->user->isGuest) {
                     $username = Yii::$app->user->identity->username;
 
@@ -23,9 +26,29 @@
         </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-            <li class="active">
-                <a href="index.html">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+
+            <li class="treeview">
+                <a href="<?= Url::to(['/contact']) ?>">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <span>Kontakt ma'lumotlar</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="<?= Url::to(['/services']) ?>">
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                    <span>Xizmatlar</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="<?= Url::to(['/main-banner']) ?>">
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                    <span>Asosiy Banner</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="<?= Url::to(['/gallery']) ?>">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    <span>Gallery</span>
                 </a>
             </li>
         </ul>
