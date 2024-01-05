@@ -2,11 +2,14 @@
 
 namespace backend\controllers;
 
+use common\components\StaticFunctions;
 use common\models\Gallery;
 use common\models\GallerySearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * GalleryController implements the CRUD actions for Gallery model.
@@ -47,12 +50,7 @@ class GalleryController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Gallery model.
-     * @param int $id ID
-     * @return string
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
     public function actionView($id)
     {
         return $this->render('view', [
@@ -60,21 +58,26 @@ class GalleryController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Gallery model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
-     */
+
     public function actionCreate()
     {
         $model = new Gallery();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $imageFile = UploadedFile::getInstance($model, 'imageFile');
+
+            if ($model->validate()) {
+                if ($imageFile) {
+                    $model->image = StaticFunctions::saveImage($imageFile, $model->id, 'Gallery');
+                }
+
+                if ($model->save()) {
+                    return $this->redirect(['index']);
+                } else {
+                    print_r($model->getErrors());
+                    die();
+                }
             }
-        } else {
-            $model->loadDefaultValues();
         }
 
         return $this->render('create', [
@@ -82,13 +85,8 @@ class GalleryController extends Controller
         ]);
     }
 
-    /**
-     * Updates an existing Gallery model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $id ID
-     * @return string|\yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
+
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);

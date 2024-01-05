@@ -46,7 +46,6 @@
             <select class="input txt-16">
                 <option class="input txt-16">Наружная реклама в городе</option>
                 <option class="input txt-16">Наружная реклама в городе2</option>
-                <option class="input txt-16">Наружная реклама в городе3</option>
             </select>
             <button type="submit" class="btn-glavni txt-18 sucs">Отправить</button>
         </form>

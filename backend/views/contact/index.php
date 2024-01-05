@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 /** @var common\models\ContactSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Kontakt';
+$this->title = 'Contacts';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contact-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Kontakt Qo\'shish', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Contact', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -30,7 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'address',
             'number',
             'email:email',

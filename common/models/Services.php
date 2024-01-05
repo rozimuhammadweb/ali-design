@@ -13,9 +13,8 @@ use Yii;
  */
 class Services extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+    public $imageFile;
+
     public static function tableName()
     {
         return 'services';
@@ -27,7 +26,7 @@ class Services extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['image'], 'string'],
+            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['name'], 'string', 'max' => 255],
         ];
     }
@@ -42,5 +41,19 @@ class Services extends \yii\db\ActiveRecord
             'name' => 'Name',
             'image' => 'Image',
         ];
+    }
+
+
+    public function upload($imageName)
+    {
+        if ($this->validate()) {
+            $uploadPath = 'uploads/BannerImage/';
+            if (!is_dir($uploadPath)) {
+                mkdir($uploadPath, 0777, true);
+            }
+            $this->imageFile->saveAs($uploadPath . $imageName . '.' . $this->imageFile->extension);
+            return true;
+        }
+        return false;
     }
 }

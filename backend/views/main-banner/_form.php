@@ -10,13 +10,17 @@ use yii\widgets\ActiveForm;
 
 <div class="main-banner-form">
 
-    <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'text')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'image')->textarea(['rows' => 6]) ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+    <div class="col-xs-3">
+        <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    </div>
+    <div class="col-xs-3">
+        <?= $form->field($model, 'text')->textInput(['maxlength' => true]) ?>
+    </div>
+    <div class="col-xs-4">
+        <?= $form->field($model, 'imageFile')->fileInput() ?>
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

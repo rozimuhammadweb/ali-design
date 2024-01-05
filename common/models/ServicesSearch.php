@@ -7,7 +7,7 @@ use yii\data\ActiveDataProvider;
 use common\models\Services;
 
 /**
- * ServicesSearch represents the model behind the search form of `common\models\Services`.
+ * ServicesSearch represents the model behind the search form of `common\models\services`.
  */
 class ServicesSearch extends Services
 {

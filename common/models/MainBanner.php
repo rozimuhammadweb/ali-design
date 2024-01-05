@@ -14,9 +14,9 @@ use Yii;
  */
 class MainBanner extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+
+    public $imageFile;
+
     public static function tableName()
     {
         return 'main_banner';
@@ -28,7 +28,7 @@ class MainBanner extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['image'], 'string'],
+            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['title'], 'string', 'max' => 25],
             [['text'], 'string', 'max' => 100],
         ];
@@ -46,4 +46,18 @@ class MainBanner extends \yii\db\ActiveRecord
             'image' => 'Image',
         ];
     }
+
+    public function upload($imageName)
+    {
+        if ($this->validate()) {
+            $uploadPath = 'uploads/main-banner/';
+            if (!is_dir($uploadPath)) {
+                mkdir($uploadPath, 0777, true);
+            }
+            $this->imageFile->saveAs($uploadPath . $imageName . '.' . $this->imageFile->extension);
+            return true;
+        }
+        return false;
+    }
+
 }

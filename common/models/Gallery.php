@@ -13,21 +13,18 @@ use Yii;
  */
 class Gallery extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+    public $imageFile;
+
     public static function tableName()
     {
         return 'gallery';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+
     public function rules()
     {
         return [
-            [['image'], 'string'],
+            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['status'], 'integer'],
         ];
     }
@@ -43,4 +40,19 @@ class Gallery extends \yii\db\ActiveRecord
             'status' => 'Status',
         ];
     }
+
+
+    public function upload($imageName)
+    {
+        if ($this->validate()) {
+            $uploadPath = 'uploads/BannerImage/';
+            if (!is_dir($uploadPath)) {
+                mkdir($uploadPath, 0777, true);
+            }
+            $this->imageFile->saveAs($uploadPath . $imageName . '.' . $this->imageFile->extension);
+            return true;
+        }
+        return false;
+    }
+
 }

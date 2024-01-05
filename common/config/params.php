@@ -1,5 +1,8 @@
 <?php
 return [
+    'uploads_dir' => '/uploads/',
+    'uploads_url' => '/uploads/',
+    'frontend' => 'http://alidesign/',
     'adminEmail' => 'admin@example.com',
     'supportEmail' => 'support@example.com',
     'senderEmail' => 'noreply@example.com',

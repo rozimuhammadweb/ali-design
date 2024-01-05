@@ -10,14 +10,15 @@ use yii\widgets\ActiveForm;
 
 <div class="gallery-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <?= $form->field($model, 'image')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'imageFile')->fileInput() ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->radioList([1 => 'Active', 0 => 'Inactive']) ?>
+
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Saqlash', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

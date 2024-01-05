@@ -10,6 +10,7 @@ class MainBanner extends Widget
 {
     public function run()
     {
-        return $this->render('main-banner');
-   }
+        $banners = \common\models\MainBanner::find()->all();
+        return $this->render('main-banner', ['banners' => $banners]);
+    }
 }

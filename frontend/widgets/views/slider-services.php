@@ -1,5 +1,4 @@
 <!-- //slider-page -->
-
 <div class="slider-page ab ">
     <div class="my-container">
         <div class="slider-page-in">
@@ -26,46 +25,24 @@
             </div>
             <div class="swiper slider-first my-swww">
                 <div class="swiper-wrapper">
-                    <a href="batafsil.html" class="swiper-slide card-s">
-                        <div class="top">
-                            <div class="top-in">
-                                <img src="img/png/s1.png" alt="">
+                    <?php use common\components\StaticFunctions;
+                    use yii\helpers\Url;
+                    foreach ($services as $service): ?>
+                        <a href="<?= Url::to(['more-info']) ?>" class="swiper-slide card-s">
+                            <div class="top">
+                                <div class="top-in">
+                                    <?php
+                                    $image = StaticFunctions::getImage($service, 'services', 'image');
+                                    ?>
+                                    <img src="<?= $image ?>" alt="img">
+                                </div>
                             </div>
-                        </div>
-                        <p class="bottom txt-28">
-                            Наружная реклама в городе
-                        </p>
-                    </a>
-                    <a href="batafsil.html" class="swiper-slide card-s">
-                        <div class="top">
-                            <div class="top-in">
-                                <img src="img/png/s2.png" alt="">
-                            </div>
-                        </div>
-                        <p class="bottom txt-28">
-                            Наружная реклама в городе
-                        </p>
-                    </a>
-                    <a href="batafsil.html" class="swiper-slide card-s">
-                        <div class="top">
-                            <div class="top-in">
-                                <img src="img/png/s3.png" alt="">
-                            </div>
-                        </div>
-                        <p class="bottom txt-28">
-                            Наружная реклама в городе
-                        </p>
-                    </a>
-                    <a href="batafsil.html" class="swiper-slide card-s">
-                        <div class="top">
-                            <div class="top-in">
-                                <img src="img/png/s4.png" alt="">
-                            </div>
-                        </div>
-                        <p class="bottom txt-28">
-                            Наружная реклама в городе
-                        </p>
-                    </a>
+                            <p class="bottom txt-28">
+                                <?= $service->name ?>
+                            </p>
+                        </a>
+                    <?php endforeach; ?>
+
                 </div>
             </div>
         </div>
@@ -85,7 +62,8 @@
                         Почему именно мы?
                     </h1>
                     <p class="txt-16">
-                        Реклама — это не просто, но мы всегда помогаем решить реальные задачи наших клиентов в реальном времени!
+                        Реклама — это не просто, но мы всегда помогаем решить реальные задачи наших клиентов в реальном
+                        времени!
                     </p>
                 </div>
                 <div class="bottom-cards">

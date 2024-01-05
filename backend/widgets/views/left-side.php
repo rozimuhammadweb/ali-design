@@ -50,6 +50,17 @@
                     <i class="fa fa-picture-o" aria-hidden="true"></i>
                     <span>Gallery</span>
                 </a>
+            </li><li class="treeview">
+                <a href="<?= Url::to(['/banner-costs']) ?>">
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                    <span>Narxlar</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="<?= Url::to(['/gallery']) ?>">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    <span>Gallery</span>
+                </a>
             </li>
         </ul>
     </section>

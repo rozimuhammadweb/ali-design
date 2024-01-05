@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\Contact;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -103,7 +104,8 @@ class SiteController extends Controller
 
     public function actionContact()
     {
-        return $this->render('contact');
+        $contacts = Contact::find()->all();
+        return $this->render('contact', ['contacts' => $contacts]);
     }
 
 

@@ -9,22 +9,19 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="contact-form">
+
     <?php $form = ActiveForm::begin(); ?>
 
-    <div class="col-xs-4">
-        <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
-    </div>
-    <div class="col-xs-4">
-        <?= $form->field($model, 'number')->textInput(['maxlength' => true]) ?>
-    </div>
-    <div class="col-xs-4">
-        <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'number')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+    <div class="form-group">
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
 
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success ']) ?>
-    </div>
 </div>
-

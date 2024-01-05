@@ -1,5 +1,4 @@
 <!-- //main-page -->
-
 <div class="main-page-content">
     <div class="my-container">
         <div class="main-content-in">
@@ -20,9 +19,10 @@
                                 </svg>
 
                             </div>
+                            <?php foreach ($contacts as $contact): ?>
                             <div class="sec-num">
                                 <p class="txt-12">Адрес</p>
-                                <p class="txt-14">г. Фергана. ул. Комус (Ориентир: кафе “Ойбек”)</p>
+                                <p class="txt-14"><?= $contact->address?></p>
                             </div>
                         </div>
                         <div class="number">
@@ -33,7 +33,7 @@
                             </div>
                             <div class="sec-num">
                                 <p class="txt-12">Номер телефона</p>
-                                <p class="txt-14">+998 97 628 28 82</p>
+                                <p class="txt-14"><?= $contact->number?></p>
                             </div>
                         </div>
                         <div class="number">
@@ -55,17 +55,17 @@
                             </div>
                             <div class="sec-num">
                                 <p class="txt-12">Электронная почта</p>
-                                <p class="txt-14">Alidesigngroupinfo@gmail.com</p>
+                                <p class="txt-14"><?= $contact->email?></p>
                             </div>
                         </div>
-
+                        <?php endforeach; ?>
                     </div>
                     <div class="right">
                         <img src="/img/png/man2.png" alt="">
                     </div>
                 </div>
                 <div class="bottom-c ab">
-                    <iframe class="left" src="/https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97258.01795972162!2d71.72042098250571!3d40.37975367272492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb83431937abc5%3A0xcfa4d876b34e7bbc!2z0KTQtdGA0LPQsNC90LAsINCj0LfQsdC10LrQuNGB0YLQsNC9!5e0!3m2!1sru!2s!4v1661864721639!5m2!1sru!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<!--                    <iframe class="left" src="/https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97258.01795972162!2d71.72042098250571!3d40.37975367272492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb83431937abc5%3A0xcfa4d876b34e7bbc!2z0KTQtdGA0LPQsNC90LAsINCj0LfQsdC10LrQuNGB0YLQsNC9!5e0!3m2!1sru!2s!4v1661864721639!5m2!1sru!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
                     <div class="right">
                         <h1 class="txt-38 top">Вопросы или предложения</h1>
                         <form class="form-content">

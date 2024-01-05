@@ -3,13 +3,14 @@
 
 namespace frontend\widgets;
 
-
+use common\models\Services;
 use yii\base\Widget;
 
 class SliderServices extends Widget
 {
     public function run()
     {
-        return $this->render('slider-services');
+        $services = Services::find()->all();
+        return $this->render('slider-services', ['services' => $services]);
     }
 }

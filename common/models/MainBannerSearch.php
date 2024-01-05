@@ -7,7 +7,7 @@ use yii\data\ActiveDataProvider;
 use common\models\MainBanner;
 
 /**
- * MainBannerSearch represents the model behind the search form of `common\models\MainBanner`.
+ * MainBannerSearch represents the model behind the search form of `common\models\main-banner`.
  */
 class MainBannerSearch extends MainBanner
 {
