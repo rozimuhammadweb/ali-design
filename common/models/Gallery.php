@@ -42,17 +42,6 @@ class Gallery extends \yii\db\ActiveRecord
     }
 
 
-    public function upload($imageName)
-    {
-        if ($this->validate()) {
-            $uploadPath = 'uploads/BannerImage/';
-            if (!is_dir($uploadPath)) {
-                mkdir($uploadPath, 0777, true);
-            }
-            $this->imageFile->saveAs($uploadPath . $imageName . '.' . $this->imageFile->extension);
-            return true;
-        }
-        return false;
-    }
+
 
 }

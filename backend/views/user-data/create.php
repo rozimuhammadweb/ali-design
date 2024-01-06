@@ -3,13 +3,13 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var common\models\Gallery $model */
+/** @var common\models\UserData $model */
 
-$this->title = 'Create gallery';
-$this->params['breadcrumbs'][] = ['label' => 'Galleries', 'url' => ['index']];
+$this->title = 'Create User Data';
+$this->params['breadcrumbs'][] = ['label' => 'User Datas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="gallery-create">
+<div class="user-data-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

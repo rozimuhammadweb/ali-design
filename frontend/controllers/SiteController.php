@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use common\models\Contact;
+use common\models\UserData;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -127,6 +128,24 @@ class SiteController extends Controller
     public function actionGallery()
     {
         return $this->render('gallery');
+    }
+
+    public function actionConsultation()
+    {
+        $model = new UserData();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Мы свяжемся с вами в ближайшее врем!');
+                return $this->redirect(['/']);
+            } else {
+                Yii::$app->session->setFlash('error', 'Ошибка при заполнении формы.');
+            }
+        } else {
+            Yii::$app->session->setFlash('error', 'Ошибка при заполнении формы.');
+        }
+
+        return $this->redirect(['/']);
     }
 
 

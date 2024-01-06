@@ -22,10 +22,10 @@
                         </p>
                         <h1 class="txt-40 main-p">
                             <?= $bannerCost->cost ?> сум
-                            <span class="txt-23">/ кв.м</span>
+                            <span class="txt-23"> кв.м</span>
                         </h1>
                         <p class="txt-18 btn-top">
-                            <?= Html::encode($bannerCost->cost_for_kv) ?>
+                            <?= Html::encode($bannerCost->cost_for_kv) ?> гр/кв.м
                         </p>
                         <a class="btn-glavni txt-18 konsul">
                             Заказать услугу
@@ -34,17 +34,17 @@
 
                         <p class="txt-16 bottom-p">
                             <span></span>
-                            Самоклеющася плёнка:   <strong><?= $bannerCost->cost_for_kv ?> сум/ кв.м</strong>
+                            Самоклеющася плёнка:<strong><?= $bannerCost->cost_for_kv ?> сум/ кв.м</strong>
                         </p>
                         <p class="txt-16 bottom-p">
                             <span></span>
-                            Самоклеющася плёнка: <strong><?= $bannerCost->cost_for_kv ?> сум/ кв.м</strong>
+                            Самоклеющася плёнка:<strong><?= $bannerCost->cost_for_kv ?> сум/ кв.м</strong>
                         </p> <p class="txt-16 bottom-p">
                             <span></span>
-                            Самоклеющася плёнка: <strong><?= $bannerCost->cost_for_kv ?> сум/ кв.м</strong>
+                            Самоклеющася плёнка:<strong><?= $bannerCost->cost_for_kv ?> сум/ кв.м</strong>
                         </p> <p class="txt-16 bottom-p">
                             <span></span>
-                            Самоклеющася плёнка:  <strong><?= $bannerCost->cost_for_kv ?> сум/ кв.м</strong>
+                            Самоклеющася плёнка:<strong><?= $bannerCost->cost_for_kv ?> сум/ кв.м</strong>
                         </p>
 
                     </div>

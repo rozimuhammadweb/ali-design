@@ -28,6 +28,12 @@
         <ul class="sidebar-menu">
 
             <li class="treeview">
+                <a href="<?= Url::to(['/user-data']) ?>">
+                    <i class="fa fa-comments" aria-hidden="true"></i>
+                    <span>Kelib tushgan arizalar</span>
+                </a>
+            </li>
+            <li class="treeview">
                 <a href="<?= Url::to(['/contact']) ?>">
                     <i class="fa fa-phone" aria-hidden="true"></i>
                     <span>Kontakt ma'lumotlar</span>
@@ -50,16 +56,17 @@
                     <i class="fa fa-picture-o" aria-hidden="true"></i>
                     <span>Gallery</span>
                 </a>
-            </li><li class="treeview">
+            </li>
+            <li class="treeview">
                 <a href="<?= Url::to(['/banner-costs']) ?>">
                     <i class="fa fa-usd" aria-hidden="true"></i>
                     <span>Narxlar</span>
                 </a>
             </li>
             <li class="treeview">
-                <a href="<?= Url::to(['/gallery']) ?>">
-                    <i class="fa fa-picture-o" aria-hidden="true"></i>
-                    <span>Gallery</span>
+                <a href="<?= Url::to(['/works']) ?>">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                    <span>Works</span>
                 </a>
             </li>
         </ul>

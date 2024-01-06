@@ -3,23 +3,22 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/** @var yii\web\View $this */
-/** @var common\models\Works $model */
-/** @var yii\widgets\ActiveForm $form */
+
 ?>
 
 <div class="works-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'image')->textarea(['rows' => 6]) ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    <div class="col-xs-3">
+        <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
     </div>
-
+    <div class="col-xs-3">
+        <?= $form->field($model, 'image')->fileInput() ?>
+    </div>
+    <div class="form-group">
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success mt-5']) ?>
+    </div>
     <?php ActiveForm::end(); ?>
 
 </div>

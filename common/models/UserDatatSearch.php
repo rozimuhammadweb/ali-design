@@ -4,12 +4,12 @@ namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Gallery;
+use common\models\UserData;
 
 /**
- * GallerySearch represents the model behind the search form of `common\models\gallery`.
+ * UserDatatSearch represents the model behind the search form of `common\models\UserData`.
  */
-class GallerySearch extends Gallery
+class UserDatatSearch extends UserData
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class GallerySearch extends Gallery
     public function rules()
     {
         return [
-            [['id', 'status'], 'integer'],
-            [['image'], 'safe'],
+            [['id'], 'integer'],
+            [['name', 'number', 'comment', 'created_at'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class GallerySearch extends Gallery
      */
     public function search($params)
     {
-        $query = Gallery::find();
+        $query = UserData::find();
 
         // add conditions that should always apply here
 
@@ -59,10 +59,12 @@ class GallerySearch extends Gallery
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'status' => $this->status,
+            'created_at' => $this->created_at,
         ]);
 
-        $query->andFilterWhere(['like', 'image', $this->image]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'number', $this->number])
+            ->andFilterWhere(['like', 'comment', $this->comment]);
 
         return $dataProvider;
     }

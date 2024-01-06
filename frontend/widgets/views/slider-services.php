@@ -32,7 +32,7 @@
                             <div class="top">
                                 <div class="top-in">
                                     <?php
-                                    $image = StaticFunctions::getImage($service, 'services', 'image');
+                                    $image = StaticFunctions::getImage($service, 'post', 'image');
                                     ?>
                                     <img src="<?= $image ?>" alt="img">
                                 </div>

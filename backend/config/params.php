@@ -1,6 +1,6 @@
 <?php
 return [
-    'uploads_dir' => 'frontend/web/',
+//    'uploads_dir' => 'frontend/web/',
     'large_image' => [
         'width' => 800,
         'height' => 600,
