@@ -61,9 +61,7 @@ class WorksController extends Controller
     public function actionCreate()
     {
         $model = new Works();
-        $upload = new Yii::$app->uploaders();
         if ($this->request->isPost) {
-            $model->image = $upload->upload(UploadedFile::getInstance($model, 'image'), "avatars");
             if ($model->load($this->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }

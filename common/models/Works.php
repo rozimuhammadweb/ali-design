@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use mohorev\file\UploadImageBehavior;
 use Yii;
 
 /**
@@ -13,6 +14,25 @@ use Yii;
  */
 class Works extends \yii\db\ActiveRecord
 {
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => UploadImageBehavior::class,
+                'attribute' => 'image',
+                'scenarios' => ['insert', 'update'],
+                'placeholder' => '@app/modules/user/assets/images/userpic.jpg',
+                'path' => '@webroot/frontend/uploads/user/{id}',
+                'url' => '@web/frontend/uploads/user/{id}',
+                'thumbs' => [
+                    'thumb' => ['width' => 400, 'quality' => 90],
+                    'preview' => ['width' => 200, 'height' => 200],
+                    'news_thumb' => ['width' => 200, 'height' => 200, 'bg_color' => '000'],
+                ],
+            ],
+        ];
+    }
+
     public $image;
 
     public static function tableName()
@@ -24,7 +44,7 @@ class Works extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['image'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            ['image', 'image', 'extensions' => 'jpg, jpeg, png', 'on' => ['insert', 'update']],
             [['title'], 'string', 'max' => 255],
         ];
     }

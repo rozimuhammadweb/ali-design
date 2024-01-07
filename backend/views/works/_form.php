@@ -11,7 +11,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <div class="col-xs-3">
-        <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model,  'title')->textInput(['maxlength' => true]) ?>
     </div>
     <div class="col-xs-3">
         <?= $form->field($model, 'image')->fileInput() ?>
